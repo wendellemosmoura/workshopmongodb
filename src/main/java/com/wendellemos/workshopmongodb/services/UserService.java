@@ -1,6 +1,7 @@
 package com.wendellemos.workshopmongodb.services;
 
 import com.wendellemos.workshopmongodb.domain.User;
+import com.wendellemos.workshopmongodb.dto.UserDTO;
 import com.wendellemos.workshopmongodb.repository.UserRepository;
 import com.wendellemos.workshopmongodb.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,13 @@ public class UserService {
     public User findById(String id) {
         Optional<User> obj = userRepository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public User insert(User obj) {
+        return userRepository.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDTO) {
+        return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
     }
 }
