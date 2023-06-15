@@ -1,9 +1,7 @@
 package com.wendellemos.workshopmongodb.services;
 
 import com.wendellemos.workshopmongodb.domain.Post;
-import com.wendellemos.workshopmongodb.domain.User;
 import com.wendellemos.workshopmongodb.repository.PostRepository;
-import com.wendellemos.workshopmongodb.repository.UserRepository;
 import com.wendellemos.workshopmongodb.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
