@@ -2,6 +2,7 @@ package com.wendellemos.workshopmongodb.config;
 
 import com.wendellemos.workshopmongodb.domain.Post;
 import com.wendellemos.workshopmongodb.domain.User;
+import com.wendellemos.workshopmongodb.dto.AuthorDTO;
 import com.wendellemos.workshopmongodb.repository.PostRepository;
 import com.wendellemos.workshopmongodb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,11 @@ public class Instantiation implements CommandLineRunner {
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
         User wendel = new User(null, "Wendel Lemos", "wendellemosmoura@gmail.com");
-
-        Post post1 = new Post(null, sdf.parse("15/06/2023"), "Partiu viagem!", "Vou viajar para Gramado, abraços!", wendel);
-        Post post2 = new Post(null, sdf.parse("15/06/2023"), "Partiu viagem!", "Vou viajar para Paris, abraços!", wendel);
-
         userRepository.saveAll(Arrays.asList(maria, alex, bob, wendel));
+
+        Post post1 = new Post(null, sdf.parse("15/06/2023"), "Partiu viagem!", "Vou viajar para Gramado, abraços!", new AuthorDTO(wendel));
+        Post post2 = new Post(null, sdf.parse("15/06/2023"), "Partiu viagem!", "Vou viajar para Paris, abraços!", new AuthorDTO(wendel));
+
         postRepository.saveAll(Arrays.asList(post1, post2));
 
     }
